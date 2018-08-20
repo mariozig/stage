@@ -6,16 +6,19 @@ Rails.application.routes.draw do
     resources :announcements
     resources :notifications
     resources :services
+    resources :submissions
 
     root to: 'users#index'
   end
-  
+
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
   
   resources :notifications, only: [:index]
-  resources :submissions, only: [:create, :new]
   resources :announcements, only: [:index]
+  resources :submissions, only: [:create, :new] do 
+    resources :files, only: [:destroy], controller: 'submissions/files'
+  end
 
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
