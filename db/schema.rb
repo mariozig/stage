@@ -120,5 +120,5 @@ ActiveRecord::Schema.define(version: 2018_08_23_155627) do
   end
 
   add_foreign_key "services", "users"
-  add_foreign_key "submissions", "galleries"
+  add_foreign_key "submissions", "galleries", on_delete: :cascade
 end

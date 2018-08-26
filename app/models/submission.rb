@@ -15,7 +15,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_...  (gallery_id => galleries.id)
+#  fk_rails_...  (gallery_id => galleries.id) ON DELETE => cascade
 #
 
 class Submission < ApplicationRecord
