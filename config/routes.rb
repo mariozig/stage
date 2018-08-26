@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
   
-  resources :notifications, only: [:index]
   resources :announcements, only: [:index]
+  resources :galleries, only: [:index, :show]
+  resources :notifications, only: [:index]
   resources :submissions, only: [:create, :new] do 
     resources :files, only: [:destroy], controller: 'submissions/files'
   end

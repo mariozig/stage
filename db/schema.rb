@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_05_075735) do
+ActiveRecord::Schema.define(version: 2018_08_23_155627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 2018_08_05_075735) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "galleries", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "publish_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.integer "recipient_id"
     t.integer "actor_id"
@@ -87,6 +95,8 @@ ActiveRecord::Schema.define(version: 2018_08_05_075735) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "gallery_id"
+    t.index ["gallery_id"], name: "index_submissions_on_gallery_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -110,4 +120,5 @@ ActiveRecord::Schema.define(version: 2018_08_05_075735) do
   end
 
   add_foreign_key "services", "users"
+  add_foreign_key "submissions", "galleries"
 end

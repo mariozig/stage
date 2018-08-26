@@ -7,9 +7,19 @@
 #  email       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  gallery_id  :bigint(8)
+#
+# Indexes
+#
+#  index_submissions_on_gallery_id  (gallery_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (gallery_id => galleries.id)
 #
 
 class Submission < ApplicationRecord
+  belongs_to :gallery, optional: true
   has_many_attached :files
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
