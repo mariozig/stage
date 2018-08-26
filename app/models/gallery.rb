@@ -11,5 +11,5 @@
 #
 
 class Gallery < ApplicationRecord
-  has_one :submission
+  has_one :submission, dependent: :destroy
 end
