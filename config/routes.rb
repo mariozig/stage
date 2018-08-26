@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :announcements
+    resources :galleries
     resources :notifications
     resources :services
     resources :submissions
