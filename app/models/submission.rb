@@ -22,22 +22,26 @@ class Submission < ApplicationRecord
   belongs_to :gallery, optional: true
   has_many_attached :files
 
-  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :description, presence: true
   validate :files_types_validation
 
-  ALLOWED_CONTENT_TYPES = [Mime::Type.lookup_by_extension("png").to_s, Mime::Type.lookup_by_extension("jpg").to_s, Mime::Type.lookup_by_extension("gif").to_s, Mime::Type.lookup_by_extension("bmp").to_s]
+  ALLOWED_CONTENT_TYPES = [
+    Mime::Type.lookup_by_extension('png').to_s,
+    Mime::Type.lookup_by_extension('jpg').to_s,
+    Mime::Type.lookup_by_extension('gif').to_s,
+    Mime::Type.lookup_by_extension('bmp').to_s
+  ].freeze
 
   def files_types_validation
     return unless files.attached?
 
     files.each do |file|
       content_type = file.blob.content_type
-      unless ALLOWED_CONTENT_TYPES.include?(content_type) 
+      unless ALLOWED_CONTENT_TYPES.include?(content_type)
         file.purge
-        errors[:base] << 'One of the images you uploaded is not a supported type' 
+        errors[:base] << 'One of the images you uploaded is not a supported type'
       end
     end
   end
-
 end
