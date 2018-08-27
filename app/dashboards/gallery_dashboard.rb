@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class GalleryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -15,7 +15,7 @@ class GalleryDashboard < Administrate::BaseDashboard
     submission: Field::HasOne,
     publish_on: Field::DateTime,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -23,35 +23,35 @@ class GalleryDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :id,
-    :title,
-    :description,
-    :submission
+  COLLECTION_ATTRIBUTES = %i[
+    id
+    title
+    description
+    submission
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :id,
-    :title,
-    :description,
-    :files,
-    :submission,
-    :publish_on,
-    :created_at,
-    :updated_at,
+  SHOW_PAGE_ATTRIBUTES = %i[
+    id
+    title
+    description
+    files
+    submission
+    publish_on
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :submission,
-    :title,
-    :files,
-    :description,
-    :publish_on,
+  FORM_ATTRIBUTES = %i[
+    submission
+    title
+    files
+    description
+    publish_on
   ].freeze
 
   def permitted_attributes

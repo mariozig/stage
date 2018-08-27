@@ -1,4 +1,4 @@
-class Galleries::FilesController < Admin::ApplicationController 
+class Galleries::FilesController < Admin::ApplicationController
   before_action :set_gallery, :set_file
 
   def destroy

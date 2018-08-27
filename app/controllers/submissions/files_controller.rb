@@ -1,4 +1,4 @@
-class Submissions::FilesController < Admin::ApplicationController 
+class Submissions::FilesController < Admin::ApplicationController
   before_action :set_submission, :set_file
 
   def destroy

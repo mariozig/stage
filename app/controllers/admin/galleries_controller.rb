@@ -19,7 +19,7 @@ module Admin
       end
     end
 
-    private 
+    private
 
     def update_file_associations(gallery)
       gallery.submission.files.each do |file|
