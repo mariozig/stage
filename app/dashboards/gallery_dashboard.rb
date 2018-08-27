@@ -12,6 +12,8 @@ class GalleryDashboard < Administrate::BaseDashboard
     id: Field::Number,
     title: Field::String,
     description: Field::Text,
+    inbound_title: Field::String,
+    inbound_description: Field::String,
     submission: Field::HasOne,
     publish_on: Field::DateTime,
     created_at: Field::DateTime,
@@ -27,6 +29,8 @@ class GalleryDashboard < Administrate::BaseDashboard
     id
     title
     description
+    inbound_title
+    inbound_description
     submission
   ].freeze
 
@@ -36,6 +40,8 @@ class GalleryDashboard < Administrate::BaseDashboard
     id
     title
     description
+    inbound_title
+    inbound_description
     files
     submission
     publish_on
@@ -49,8 +55,10 @@ class GalleryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     submission
     title
-    files
     description
+    inbound_title
+    inbound_description
+    files
     publish_on
   ].freeze
 
