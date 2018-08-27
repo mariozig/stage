@@ -8,6 +8,7 @@ class GalleryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    files: Field::ActiveStorage.with_options(destroy_path: 'gallery_file_path'),
     id: Field::Number,
     title: Field::String,
     description: Field::Text,
@@ -35,6 +36,7 @@ class GalleryDashboard < Administrate::BaseDashboard
     :id,
     :title,
     :description,
+    :files,
     :submission,
     :publish_on,
     :created_at,
@@ -47,11 +49,12 @@ class GalleryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :submission,
     :title,
+    :files,
     :description,
     :publish_on,
   ].freeze
 
   def permitted_attributes
-    super + [:submission]
+    super + [:submission] + [files: []]
   end
 end

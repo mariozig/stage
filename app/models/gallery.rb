@@ -12,4 +12,5 @@
 
 class Gallery < ApplicationRecord
   has_one :submission, dependent: :destroy
+  has_many_attached :files
 end
