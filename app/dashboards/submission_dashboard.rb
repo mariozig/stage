@@ -58,6 +58,6 @@ class SubmissionDashboard < Administrate::BaseDashboard
 
   # permitted for has_many_attached
   def permitted_attributes
-    super + [:files => []]
+    super + [files: []]
   end
 end
