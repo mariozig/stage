@@ -11,6 +11,7 @@ class GalleryDashboard < Administrate::BaseDashboard
     files: Field::ActiveStorage.with_options(destroy_path: 'gallery_file_path'),
     id: Field::Number,
     title: Field::String,
+    slug: Field::String,
     description: Field::Text,
     inbound_title: Field::String,
     inbound_description: Field::String,
@@ -28,6 +29,7 @@ class GalleryDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     title
+    slug
     description
     inbound_title
     inbound_description
@@ -39,6 +41,7 @@ class GalleryDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     title
+    slug
     description
     inbound_title
     inbound_description
@@ -55,6 +58,7 @@ class GalleryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     submission
     title
+    slug
     description
     inbound_title
     inbound_description

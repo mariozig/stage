@@ -22,7 +22,7 @@ class Gallery < ApplicationRecord
   has_many_attached :files
 
   extend FriendlyId
-  friendly_id :friendly_id_slug_candidates, use: :slugged
+  friendly_id :friendly_id_slug_candidates, use: [:history, :finders]
 
   def friendly_id_slug_candidates
     %i[title friendly_id_sequenced_title]
