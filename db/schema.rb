@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_040354) do
     t.string "name"
     t.string "email"
     t.text "body"
-    t.bigint "gallery_id"
+    t.bigint "gallery_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gallery_id"], name: "index_comments_on_gallery_id"

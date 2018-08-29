@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :email
       t.text :body
-      t.belongs_to :gallery, foreign_key: true, foreign_key: { on_delete: :cascade }
+      t.belongs_to :gallery, foreign_key: { on_delete: :cascade }, null: false
 
       t.timestamps
     end
