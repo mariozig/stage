@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_170722) do
+ActiveRecord::Schema.define(version: 2018_08_29_040354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_170722) do
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
-    t.integer "sluggable_id", null: false
+    t.bigint "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
     t.string "scope"
     t.datetime "created_at"
@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(version: 2018_08_28_170722) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "recipient_id"
-    t.integer "actor_id"
+    t.bigint "recipient_id"
+    t.bigint "actor_id"
     t.datetime "read_at"
     t.string "action"
-    t.integer "notifiable_id"
+    t.bigint "notifiable_id"
     t.string "notifiable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

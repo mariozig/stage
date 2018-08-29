@@ -8,9 +8,9 @@
 #  read_at         :datetime
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  actor_id        :integer
-#  notifiable_id   :integer
-#  recipient_id    :integer
+#  actor_id        :bigint(8)
+#  notifiable_id   :bigint(8)
+#  recipient_id    :bigint(8)
 #
 
 class Notification < ApplicationRecord
