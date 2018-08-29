@@ -1,6 +1,6 @@
 require 'administrate/base_dashboard'
 
-class GalleryDashboard < Administrate::BaseDashboard
+class CommentDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,16 +8,11 @@ class GalleryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    files: Field::ActiveStorage.with_options(destroy_path: 'gallery_file_path'),
-    comments: Field::HasMany,
+    gallery: Field::BelongsTo,
     id: Field::Number,
-    title: Field::String,
-    slug: Field::String,
-    description: Field::Text,
-    inbound_title: Field::String,
-    inbound_description: Field::String,
-    submission: Field::HasOne,
-    publish_on: Field::DateTime,
+    name: Field::String,
+    email: Field::String,
+    body: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -28,29 +23,20 @@ class GalleryDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
+    gallery
     id
-    title
-    slug
-    description
-    inbound_title
-    inbound_description
-    submission
-    comments
+    name
+    email
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    gallery
     id
-    title
-    slug
-    description
-    inbound_title
-    inbound_description
-    files
-    submission
-    comments
-    publish_on
+    name
+    email
+    body
     created_at
     updated_at
   ].freeze
@@ -59,16 +45,15 @@ class GalleryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    title
-    slug
-    description
-    inbound_title
-    inbound_description
-    files
-    publish_on
+    name
+    email
+    body
   ].freeze
 
-  def permitted_attributes
-    super + [:submission] + [files: []]
-  end
+  # Overwrite this method to customize how comments are displayed
+  # across all pages of the admin dashboard.
+  #
+  # def display_resource(comment)
+  #   "Comment ##{comment.id}"
+  # end
 end
