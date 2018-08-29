@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table title: galleries
+# Table name: galleries
 #
 #  id                  :bigint(8)        not null, primary key
 #  description         :text
@@ -20,6 +20,7 @@
 class Gallery < ApplicationRecord
   has_one :submission, dependent: :destroy
   has_many_attached :files
+  has_many :comments, dependent: :destroy
 
   extend FriendlyId
   friendly_id :friendly_id_slug_candidates, use: [:history, :finders]
