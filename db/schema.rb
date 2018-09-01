@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_040354) do
   create_table "comments", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.text "body"
+    t.text "content"
     t.bigint "gallery_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

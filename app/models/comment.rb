@@ -3,7 +3,7 @@
 # Table name: comments
 #
 #  id         :bigint(8)        not null, primary key
-#  body       :text
+#  content    :text
 #  email      :string
 #  name       :string
 #  created_at :datetime         not null
@@ -20,5 +20,8 @@
 #
 
 class Comment < ApplicationRecord
+  include Rakismet::Model
+  rakismet_attrs author: :name, author_email: :email
+
   belongs_to :gallery
 end
