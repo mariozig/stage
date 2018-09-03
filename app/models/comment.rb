@@ -3,9 +3,9 @@
 # Table name: comments
 #
 #  id         :bigint(8)        not null, primary key
-#  content    :text
-#  email      :string
-#  name       :string
+#  content    :text             not null
+#  email      :string           not null
+#  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  gallery_id :bigint(8)        not null
@@ -24,4 +24,8 @@ class Comment < ApplicationRecord
   rakismet_attrs author: :name, author_email: :email
 
   belongs_to :gallery
+
+  validates :content, presence: true, length: { minimum: 2 }
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :name, presence: true
 end
