@@ -1,1 +1,36 @@
-Showing gallery: <%= @gallery.id %>
+
+<p>
+  id:
+  <br/>
+  <%= @gallery.id  %>
+</p>
+<p>
+  title
+  <br/>
+  <%= @gallery.title %>
+</p>
+<p>
+  files:
+  <br/>
+  <% @gallery.files.each do |file| %>
+    <%= link_to file do %>
+      <%= image_tag file.variant(resize: "500x500") %>
+    <% end %>
+  <% end %>
+</p>
+<div>
+  comments:
+  <% @gallery.comments.each do |comment| %>
+    <p>
+      Name: <%= comment.name %>
+      <br>
+      Created: <%= comment.created_at %>
+      <br>
+      Content: <%= comment.content %>
+    </p>
+  <% end %>
+</div>
+<p>
+  add comment:
+  <%= render 'comment_form', gallery: @gallery, comment: @comment %>
+</p>

@@ -5,7 +5,9 @@ class GalleriesController < ApplicationController
     @galleries = Gallery.all
   end
 
-  def show; end
+  def show
+    @comment = @gallery.comments.build
+  end
 
   private
 

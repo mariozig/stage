@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :announcements, only: [:index]
   resources :galleries, only: [:index, :show] do
     resources :files, only: [:destroy], controller: 'galleries/files'
+    resources :comments, only: [:create], controller: 'galleries/comments'
   end
   resources :notifications, only: [:index]
   resources :submissions, only: [:create, :new] do
