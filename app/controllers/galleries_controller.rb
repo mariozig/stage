@@ -6,7 +6,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
-    @comment = @gallery.comments.build
+    @comment = Comment.new(gallery: @gallery)
   end
 
   private
