@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_29_040354) do
+ActiveRecord::Schema.define(version: 2018_09_07_055722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,13 @@ ActiveRecord::Schema.define(version: 2018_08_29_040354) do
     t.bigint "gallery_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_ip", null: false
+    t.string "user_agent", null: false
+    t.string "referrer", null: false
+    t.string "user_role", default: "visitor", null: false
+    t.integer "spam_status", default: 0, null: false
     t.index ["gallery_id"], name: "index_comments_on_gallery_id"
+    t.index ["spam_status"], name: "index_comments_on_spam_status"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
