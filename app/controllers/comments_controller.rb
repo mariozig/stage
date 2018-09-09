@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     end
 
     if @comment.save
+      CheckCommentForSpamJob.perform_later(@comment.id)
       redirect_to(@gallery, notice: 'Comment was successfully created.')
     else
       render 'galleries/show'
