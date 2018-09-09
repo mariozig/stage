@@ -12,9 +12,14 @@ class CommentDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     email: Field::String,
-    body: Field::Text,
+    content: Field::Text,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    user_ip: Field::String,
+    user_agent: Field::String,
+    referrer: Field::String,
+    user_role: Field::String,
+    spam_status: Field::Enum
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -36,18 +41,29 @@ class CommentDashboard < Administrate::BaseDashboard
     id
     name
     email
-    body
+    content
     created_at
     updated_at
+    user_ip
+    user_agent
+    referrer
+    user_role
+    spam_status
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    gallery
     name
     email
-    body
+    content
+    user_ip
+    user_agent
+    referrer
+    user_role
+    spam_status
   ].freeze
 
   # Overwrite this method to customize how comments are displayed
