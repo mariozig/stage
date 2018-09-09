@@ -27,21 +27,22 @@ as well as a link to its edit page.
     <% if page.resource.gallery.present? %>
       <%= link_to "View Gallery", admin_gallery_path(page.resource.gallery), class: "button" %>
     <% else %>
-      <%= button_to "Accept Submission", 
+      <%= button_to "Accept Submission",
           admin_galleries_path,
           params: {
             gallery: {
-            description: page.resource.description,
-            submission_id: page.resource.id,
-            title: "untitled"
-          }},
+              description: page.resource.description,
+              submission_id: page.resource.id,
+              title: "untitled"
+            }
+          },
           form: {
             style: "display: inline"
           },
-          class: "button" 
+          class: "button"
       %>
     <% end %>
-    
+
     <%= link_to(
       t("administrate.actions.edit_resource", name: page.page_title),
       [:edit, namespace, page.resource],
