@@ -68,6 +68,10 @@ class GalleryDashboard < Administrate::BaseDashboard
     publish_on
   ].freeze
 
+  def display_resource(gallery)
+    "Gallery ##{gallery.id} - #{gallery.title}"
+  end
+
   def permitted_attributes
     super + [:submission] + [files: []]
   end
