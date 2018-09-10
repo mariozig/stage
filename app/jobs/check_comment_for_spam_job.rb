@@ -3,6 +3,6 @@ class CheckCommentForSpamJob < ApplicationJob
 
   def perform(comment_id)
     comment = Comment.find(comment_id)
-    comment.update_spam_status!
+    comment.set_local_spam_status!
   end
 end

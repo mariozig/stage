@@ -30,8 +30,10 @@ class CommentDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     gallery
     id
+    spam_status
     name
     email
+    content
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

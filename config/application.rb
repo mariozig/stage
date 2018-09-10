@@ -31,5 +31,10 @@ module Stage
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Load App helpers into administrate
+    config.to_prepare do
+      Administrate::ApplicationController.helper Stage::Application.helpers
+    end
   end
 end
