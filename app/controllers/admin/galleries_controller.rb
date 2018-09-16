@@ -2,7 +2,7 @@ module Admin
   class GalleriesController < Admin::ApplicationController
     def create
       resource = resource_class.new(resource_params)
-      resource.submission = Submission.find(params[:gallery][:submission_id])
+      resource.submission = Submission.find(params[:gallery][:submission_id]) if params[:gallery][:submission_id].present?
 
       authorize_resource(resource)
 

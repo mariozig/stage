@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_055722) do
+ActiveRecord::Schema.define(version: 2018_09_16_030009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,26 @@ ActiveRecord::Schema.define(version: 2018_09_07_055722) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "report_reasons", force: :cascade do |t|
+    t.string "content", null: false
+    t.integer "position", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["position"], name: "index_report_reasons_on_position", unique: true
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.text "content"
+    t.bigint "gallery_id", null: false
+    t.bigint "report_reason_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gallery_id"], name: "index_reports_on_gallery_id"
+    t.index ["report_reason_id"], name: "index_reports_on_report_reason_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.bigint "user_id"
     t.string "provider"
@@ -140,6 +160,8 @@ ActiveRecord::Schema.define(version: 2018_09_07_055722) do
   end
 
   add_foreign_key "comments", "galleries", on_delete: :cascade
+  add_foreign_key "reports", "galleries", on_delete: :cascade
+  add_foreign_key "reports", "report_reasons"
   add_foreign_key "services", "users"
   add_foreign_key "submissions", "galleries", on_delete: :cascade
 end

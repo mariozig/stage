@@ -19,8 +19,9 @@
 
 class Gallery < ApplicationRecord
   has_one :submission, dependent: :destroy
-  has_many_attached :files
   has_many :comments, dependent: :destroy
+  has_many :reports, dependent: :destroy
+  has_many_attached :files
 
   extend FriendlyId
   friendly_id :friendly_id_slug_candidates, use: [:history, :finders]

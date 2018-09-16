@@ -29,8 +29,14 @@
       Content: <%= comment.content %>
     </p>
   <% end %>
-</div>
-<p>
+  <p>
   add comment:
-  <%= render 'comments/form', gallery: @gallery, comment: @comment %>
-</p>
+    <%= render 'comments/form', gallery: @gallery, comment: (@comment || Comment.new) %>
+  </p>
+</div>
+<div>
+  reports:
+  add report:
+    <%= render 'reports/form', gallery: @gallery, report: @report || Report.new %>
+  </p>
+</div>

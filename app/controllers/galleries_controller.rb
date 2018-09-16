@@ -7,6 +7,7 @@ class GalleriesController < ApplicationController
 
   def show
     @comment = Comment.new(gallery: @gallery)
+    @report = Report.new(gallery: @gallery)
   end
 
   private
