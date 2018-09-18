@@ -10,6 +10,11 @@
   <%= @gallery.title %>
 </p>
 <p>
+  category
+  <br/>
+  <%= link_to @gallery.category.name, category_path(@gallery.category) %>
+</p>
+<p>
   files:
   <br/>
   <% @gallery.files.each do |file| %>

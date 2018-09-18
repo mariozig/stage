@@ -1,0 +1,12 @@
+<h1><%= @category.name %></h1>
+
+<div>
+  Galleries:
+  <% @category.galleries.each do |gallery| %>
+    <p>
+      Title: <%= link_to gallery.title, gallery_path(gallery) %>
+      <br>
+      Created: <%= gallery.created_at %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+Category Index:
+<div>
+  <% @categories.each do |category| %>
+    <div>
+      <%= link_to category.name, category_path(category) %> | Galleries: <%= category.galleries.count %>
+    </div>
+  <% end %>
+</div>

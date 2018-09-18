@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/terms', to: 'home#terms'
 
   resources :announcements, only: [:index]
+  resources :categories, only: [:index, :show]
   resources :galleries, only: [:index, :show] do
     resources :comments, only: [:create]
     resources :files, only: [:destroy], controller: 'galleries/files'

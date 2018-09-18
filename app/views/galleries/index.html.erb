@@ -1,8 +1,8 @@
-Gallery Index: 
+Gallery Index:
 <div>
   <% @galleries.each do |gallery| %>
     <div>
-      Gallery: <%= link_to gallery.title, gallery_path(gallery) %>
+      <%= link_to gallery.title, gallery_path(gallery) %> in category: <%= link_to gallery.category.name, category_path(gallery.category) %>
     </div>
   <% end %>
 </div>
