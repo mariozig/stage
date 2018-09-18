@@ -3,6 +3,7 @@ module Admin
     def create
       resource = resource_class.new(resource_params)
       resource.submission = Submission.find(params[:gallery][:submission_id]) if params[:gallery][:submission_id].present?
+      resource.category = Category.default_category
 
       authorize_resource(resource)
 
