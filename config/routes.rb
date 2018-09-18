@@ -3,6 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   namespace :admin do
     resources :announcements
+    resources :categories
     resources :comments
     resources :galleries
     resources :notifications

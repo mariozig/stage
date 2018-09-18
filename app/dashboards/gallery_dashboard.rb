@@ -31,8 +31,10 @@ class GalleryDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    reports
     title
     slug
+    category
     description
     inbound_title
     inbound_description
@@ -46,12 +48,14 @@ class GalleryDashboard < Administrate::BaseDashboard
     id
     title
     slug
+    category
     description
     inbound_title
     inbound_description
     files
     submission
     comments
+    reports
     publish_on
     created_at
     updated_at
@@ -62,7 +66,7 @@ class GalleryDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     title
-    slug
+    category
     description
     inbound_title
     inbound_description
