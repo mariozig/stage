@@ -9,10 +9,12 @@ class GalleryDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     files: Field::ActiveStorage.with_options(destroy_path: 'gallery_file_path'),
+    reports: Field::HasMany,
     comments: Field::HasMany,
     id: Field::Number,
     title: Field::String,
     slug: Field::String,
+    category: Field::BelongsTo,
     description: Field::Text,
     inbound_title: Field::String,
     inbound_description: Field::String,
