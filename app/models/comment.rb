@@ -37,7 +37,7 @@ class Comment < ApplicationRecord
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :name, presence: true
 
-  def set_local_spam_status
+  def set_local_spam_status!
     spam? ? is_spam! : not_spam!
   end
 end
