@@ -11,20 +11,23 @@
 #  title               :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  category_id         :bigint(8)        not null
 #
 # Indexes
 #
-#  index_galleries_on_slug  (slug) UNIQUE
+#  index_galleries_on_category_id  (category_id)
+#  index_galleries_on_slug         (slug) UNIQUE
 #
 
 class Gallery < ApplicationRecord
+  extend FriendlyId
+  friendly_id :friendly_id_slug_candidates, use: %i[history finders]
+
+  belongs_to :category
   has_one :submission, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many_attached :files
-
-  extend FriendlyId
-  friendly_id :friendly_id_slug_candidates, use: [:history, :finders]
 
   def friendly_id_slug_candidates
     %i[title friendly_id_sequenced_title]
