@@ -2,7 +2,7 @@ class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show]
 
   def index
-    @galleries = Gallery.all
+    @pagy, @galleries = pagy(Gallery.all, items: 40)
   end
 
   def show

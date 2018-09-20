@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @galleries = @category.galleries
+    @pagy, @galleries = pagy(@category.galleries, items: 25)
   end
 
   private
