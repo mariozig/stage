@@ -27,9 +27,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -45,9 +42,9 @@ end
 group :development do
   gem 'annotate'
   gem 'awesome_print', require: 'ap'
-  gem 'rubocop'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rubocop'
   gem 'web-console', '>= 3.3.0'
 end
 
@@ -62,6 +59,7 @@ gem 'data-confirm-modal', '~> 1.6', '>= 1.6.2'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
 gem 'devise_masquerade', '~> 0.6.2'
+gem 'elasticsearch', '~> 6.1.0'
 gem 'font-awesome-sass', '~> 5.0', '>= 5.0.13'
 gem 'foreman', '~> 0.84.0'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
