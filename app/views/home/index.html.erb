@@ -1,2 +1,10 @@
 <h1>STAGE</h1>
 <p class="lead">Lorem ipsum dolor sit amet</p>
+
+<h2>SEARCH</h2>
+<div>
+  <%= form_with url: searches_path, method: :get, local: true do |form| %>
+    <%= form.text_field :q %>
+    <%= form.submit 'Search' %>
+  <% end %>
+</div>

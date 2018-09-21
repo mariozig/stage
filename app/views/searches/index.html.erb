@@ -1,0 +1,8 @@
+<h1>Search Results</h1>
+<div>
+  <% @galleries.each do |gallery| %>
+    <div>
+      <%= link_to gallery.title, gallery_path(gallery) %> in category: <%= link_to gallery.category.name, category_path(gallery.category) %>
+    </div>
+  <% end %>
+</div>

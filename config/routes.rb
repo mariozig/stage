@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :reports, only: [:create, :new]
   end
   resources :notifications, only: [:index]
+  resources :searches, only: [:index]
   resources :submissions, only: [:create, :new] do
     resources :files, only: [:destroy], controller: 'submissions/files'
   end

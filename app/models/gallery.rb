@@ -22,6 +22,7 @@
 class Gallery < ApplicationRecord
   extend FriendlyId
   friendly_id :friendly_id_slug_candidates, use: %i[history finders]
+  searchkick
 
   belongs_to :category
   has_one :submission, dependent: :destroy
