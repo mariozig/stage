@@ -26,12 +26,7 @@ class Submission < ApplicationRecord
   validates :description, presence: true
   validate :files_types_validation
 
-  ALLOWED_CONTENT_TYPES = [
-    Mime::Type.lookup_by_extension('png').to_s,
-    Mime::Type.lookup_by_extension('jpg').to_s,
-    Mime::Type.lookup_by_extension('gif').to_s,
-    Mime::Type.lookup_by_extension('bmp').to_s
-  ].freeze
+  ALLOWED_CONTENT_TYPES = ActiveStorage::Variant::WEB_IMAGE_CONTENT_TYPES.freeze
 
   def files_types_validation
     return unless files.attached?
