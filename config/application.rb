@@ -36,5 +36,7 @@ module Stage
     config.to_prepare do
       Administrate::ApplicationController.helper Stage::Application.helpers
     end
+
+    config.watermark_images = true
   end
 end

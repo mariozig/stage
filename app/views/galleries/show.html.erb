@@ -17,7 +17,7 @@
   files:
   <br/>
   <% @gallery.files.each do |file| %>
-    <%= link_to file do %>
+    <%= link_to file.variant(options_for_watermarked_variant) do %>
       <%= image_tag file.variant(resize: "500x500") %>
     <% end %>
   <% end %>
