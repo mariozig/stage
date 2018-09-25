@@ -54,6 +54,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'administrate'
 gem 'administrate-field-active_storage', github: 'mariozig/administrate-field-active_storage'
 gem 'administrate-field-enum'
+gem 'ahoy_matey'
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'data-confirm-modal', '~> 1.6', '>= 1.6.2'
 gem 'devise', '~> 4.4', '>= 4.4.3'
