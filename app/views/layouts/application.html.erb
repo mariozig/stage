@@ -5,13 +5,29 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/notices' %>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+    <div id="wrapper">
+      <header id="header" class="header">
+        <%= render 'shared/top_navbar' %>
+      </header>
 
-    <%= render 'shared/footer' %>
+      <!-- Logo -->
+      <div class="logo">
+        <%= link_to root_url do %>
+          <%= image_tag "logo.png", alt: "Logo" %>
+        <% end %>
+      </div>
+      <!-- End Logo -->
+
+      <!-- Main Menu -->
+      <div class="main-menu sticky">
+        <%= render 'shared/main_menu' %>
+      </div>
+      <!-- End Main Menu -->
+
+      <%= yield %>
+
+    </div>
   </body>
 </html>

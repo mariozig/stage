@@ -1,20 +1,13 @@
+// @import "sticky-footer";
+@import "material-design-iconic-font";
+@import "bootstrap";
+@import "decoz-styles";
+
+// Announcements
 // $navbar-default-bg: #312312;
 // $light-orange: #ff8c00;
 // $navbar-default-color: $light-orange;
-
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "bootstrap";
-@import "sticky-footer";
-@import "announcements";
-
-// Fixes bootstrap nav-brand container overlap
-@include media-breakpoint-down(xs) {
-  .container {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
+// @import "announcements";
 
 // Masquerade alert shouldn't have a bottom margin
 body > .alert {

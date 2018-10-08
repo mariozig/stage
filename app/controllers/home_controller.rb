@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-  def index; end
+  def index
+    @pagy, @galleries = pagy(Gallery.all, items: 40)
+  end
 
   def terms; end
 
