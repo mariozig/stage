@@ -17,10 +17,10 @@
       <!-- Search -->
       <div class="search-wrap">
         <div class="search-inner">
-          <form role="search" method="get" action="#">
-            <input type="text" placeholder="Type and hit enter..." name="s" />
-            <input type="submit" value="&#xf1c3;" class="submit" />
-          </form>
+          <%= form_with url: searches_path, method: :get, local: true, skip_enforcing_utf8: true, role: 'search' do |form| %>
+            <%= form.text_field :q, placeholder: "Type and hit enter..." %>
+            <%= form.submit "\uf1c3", name: nil, class: 'submit' %>
+          <% end %>
         </div>
       </div>
       <!-- End Search -->
