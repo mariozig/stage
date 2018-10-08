@@ -20,7 +20,7 @@
 #
 
 class Gallery < ApplicationRecord
-  WATERMARK_PATH = Rails.root.join('lib', 'assets', 'images', 'sample_watermark.png')
+  WATERMARK_PATH = Rails.root.join('app', 'assets', 'images', 'sample_watermark.png')
 
   extend FriendlyId
   friendly_id :friendly_id_slug_candidates, use: %i[history finders]

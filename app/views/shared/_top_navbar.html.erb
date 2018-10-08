@@ -1,0 +1,112 @@
+<div class="container">
+  <!-- Only Desktop -->
+  <div class="row">
+    <div class="col-sm-6">
+      <!-- Socials -->
+      <div class="socials">
+        <a href="#" class="zmdi zmdi-behance" title="Behance" target="blank"></a>
+        <a href="#" class="zmdi zmdi-dribbble" title="Dribbble" target="blank"></a>
+        <a href="#" class="zmdi zmdi-facebook" title="Facebook" target="blank"></a>
+        <a href="#" class="zmdi zmdi-google" title="Google Plus" target="blank"></a>
+        <a href="#" class="zmdi zmdi-twitter" title="Twitter" target="blank"></a>
+      </div>
+      <!-- End Socials -->
+    </div>
+
+    <div class="col-sm-6">
+      <!-- Search -->
+      <div class="search-wrap">
+        <div class="search-inner">
+          <%= form_with url: searches_path, method: :get, local: true, skip_enforcing_utf8: true, role: 'search' do |form| %>
+            <%= form.text_field :q, placeholder: "Type and hit enter..." %>
+            <%= form.submit "\uf1c3", name: nil, class: 'submit' %>
+          <% end %>
+        </div>
+      </div>
+      <!-- End Search -->
+    </div>
+  </div>
+  <!-- End Only Desktop -->
+
+  <!-- Only Mobile -->
+  <div class="mobile">
+    <!-- Mobile -->
+    <div class="menu-mobile">
+      <span class="item item-1"></span>
+      <span class="item item-2"></span>
+      <span class="item item-3"></span>
+    </div>
+    <!-- End Mobile -->
+
+    <!-- Socials -->
+    <div class="socials">
+      <a href="#" class="zmdi zmdi-behance" title="Behance" target="blank"></a>
+      <a href="#" class="zmdi zmdi-dribbble" title="Dribbble" target="blank"></a>
+      <a href="#" class="zmdi zmdi-facebook" title="Facebook" target="blank"></a>
+      <a href="#" class="zmdi zmdi-google" title="Google Plus" target="blank"></a>
+      <a href="#" class="zmdi zmdi-twitter" title="Twitter" target="blank"></a>
+    </div>
+    <!-- End Socials -->
+
+    <div class="box-left">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="index.html">
+          <%= image_tag 'logo.png', alt: "Logo" %>
+        </a>
+      </div>
+      <!-- End Logo -->
+
+      <div class="main-menu">
+        <nav>
+          <ul class="menu-list clearfix">
+            <li class="menu-item"><a href="index.html">Home</a>
+              <ul class="sub-menu">
+                <li class="menu-item"><a href="index.html">2 Columns</a>
+                <li class="menu-item"><a href="index-2.html">3 Columns</a>
+                <li class="menu-item"><a href="index-3.html">Flexible</a>
+                <li class="menu-item"><a href="index-filter.html">2 Columns & Equals</a>
+                <li class="menu-item"><a href="index-zoom.html">3 Columns & Equals</a>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="about.html">About</a>
+            <li class="menu-item"><a href="#">Identity</a>
+            <li class="menu-item"><a href="blog.html">Blog</a>
+            <li class="menu-item menu-item-has-children"><a href="#">Pages</a>
+              <ul class="sub-menu">
+                <li class="menu-item"><a href="single.html">Single</a>
+                <li class="menu-item"><a href="single-project.html">Project 1</a>
+                <li class="menu-item"><a href="single-project-2.html">Project 2</a>
+                <li class="menu-item"><a href="single-project-3.html">Project 3</a>
+                <li class="menu-item"><a href="single-project-4.html">Project 4</a>
+                <li class="menu-item"><a href="404.html">404 Page</a>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="contact.html">Contact</a>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="box-left-footer">
+
+        <!-- Socials -->
+        <div class="socials">
+          <a href="#" class="zmdi zmdi-behance" title="Behance" target="blank"></a>
+          <a href="#" class="zmdi zmdi-dribbble" title="Dribbble" target="blank"></a>
+          <a href="#" class="zmdi zmdi-facebook" title="Facebook" target="blank"></a>
+          <a href="#" class="zmdi zmdi-google" title="Google Plus" target="blank"></a>
+          <a href="#" class="zmdi zmdi-twitter" title="Twitter" target="blank"></a>
+        </div>
+        <!-- End Socials -->
+
+        <form role="search" method="get" action="#">
+          <input type="text" placeholder="Type and hit enter..." name="s" />
+        </form>
+      </div>
+    </div>
+
+    <div class="body-overlay"></div>
+  </div>
+  <!-- End Only Mobile -->
+  </div>
+</div>

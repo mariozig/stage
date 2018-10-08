@@ -1,10 +1,76 @@
-<h1>STAGE</h1>
-<p class="lead">Lorem ipsum dolor sit amet</p>
-
-<h2>SEARCH</h2>
-<div>
-  <%= form_with url: searches_path, method: :get, local: true, skip_enforcing_utf8: true do |form| %>
-    <%= form.text_field :q %>
-    <%= form.submit 'Search', name: nil %>
-  <% end %>
+<!-- Hero Content -->
+<div class="header-text ">
+  <div class="container">
+    <div class="header-image">
+      <%= image_tag 'header.jpg', alt: "Header" %>
+      <div class="header-text-inner">
+        <p>
+          I am Decoz a Graphic Designer based in New York, specializing in User Interface <a href="#">#Design</a> and
+          <a href="#">#Development</a>.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- End Hero Content -->
+
+<!-- Main Content -->
+<div class="wrap-content">
+  <div class="container">
+    <div class="projects">
+      <div class="grids-layout grid-3-columns scale">
+        <div class="project-item-sizer"></div>
+
+        <% @galleries.each do |gallery| %>
+          <div class="project-item">
+            <div class="project-item-inner">
+              <%= link_to gallery_path(gallery) do %>
+                <%= image_tag gallery.files.first.variant(resize: "350"), alt: "image" %>
+              <% end %>
+              <div class="project-item-content">
+                <h2 class="title">
+                  <%= link_to gallery.title, gallery %>
+                </h2>
+                <h5>
+                  Category:
+                  <%= link_to gallery.category.name, category_path(gallery.category) %>
+                </h5>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-wrap">
+        <ul>
+          <li>
+            <a class="prev page-numbers" href="#">
+              <i class="zmdi zmdi-arrow-left"></i>
+            </a>
+          </li>
+          <li>
+            <a class="page-numbers" href="#">1</a>
+          </li>
+          <li>
+            <span class="page-numbers current">2</span>
+          </li>
+          <li>
+            <a class="page-numbers" href="#">3</a>
+          </li>
+          <li>
+            <a class="next page-numbers" href="#">
+              <i class="zmdi zmdi-arrow-right"></i>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- End Pagination -->
+    </div>
+
+  </div>
+</div>
+<!-- End Main Content -->
