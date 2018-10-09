@@ -16,7 +16,20 @@ body > .alert {
 
 .pagination {
   display: block;
+
   .active {
     text-decoration: underline;
+  }
+}
+
+.projects .scale .project-item-content {
+  opacity: 1;
+  visibility: visible;
+  left: 15px;
+  padding-left: 15px;
+  padding-right: 40px;
+
+  .title {
+    text-align: left;
   }
 }
