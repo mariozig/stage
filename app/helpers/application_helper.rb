@@ -9,4 +9,8 @@ module ApplicationHelper
       notice: 'alert-info'
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
+
+  def title(page_title)
+    content_for(:title) { "#{page_title} - #{Rails.configuration.application_name}" }
+  end
 end
