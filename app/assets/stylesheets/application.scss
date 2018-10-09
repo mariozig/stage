@@ -13,3 +13,10 @@
 body > .alert {
   margin-bottom: 0;
 }
+
+.pagination {
+  display: block;
+  .active {
+    text-decoration: underline;
+  }
+}

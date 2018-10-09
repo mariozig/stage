@@ -6,6 +6,7 @@ Gallery Index:
     </div>
   <% end %>
 </div>
-<div>
-  <%= raw pagy_nav_bootstrap(@pagy) %>
-</div>
+
+<!-- Pagination -->
+<%= render 'galleries/paginated_listing', pagy: @pagy %>
+<!-- End Pagination -->
