@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @pagy, @galleries = pagy(Gallery.all, items: 2)
+    @pagy, @galleries = pagy(Gallery.all, items: 40)
   end
 
   def terms; end
