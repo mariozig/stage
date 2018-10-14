@@ -1,12 +1,1 @@
-Gallery Index:
-<div>
-  <% @galleries.each do |gallery| %>
-    <div>
-      <%= link_to gallery.title, gallery_path(gallery) %> in category: <%= link_to gallery.category.name, category_path(gallery.category) %>
-    </div>
-  <% end %>
-</div>
-
-<!-- Pagination -->
-<%= render 'galleries/page_list', pagy: @pagy %>
-<!-- End Pagination -->
+<%= render 'galleries/grid', galleries: @galleries, pagy: @pagy %>

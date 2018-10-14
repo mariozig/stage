@@ -16,34 +16,6 @@
 
 <!-- Main Content -->
 <div class="wrap-content">
-  <div class="container">
-
-    <!-- Projects (aka Galleries) -->
-    <div class="projects">
-      <div class="grids-layout grid-3-columns scale">
-        <div class="project-item-sizer"></div>
-
-        <% @galleries.each do |gallery| %>
-          <div class="project-item">
-            <div class="project-item-inner">
-              <%= link_to gallery_path(gallery) do %>
-                <%= image_tag gallery.files.first.variant(resize: "350"), alt: "image" %>
-              <% end %>
-              <div class="project-item-content">
-                <h2 class="title">
-                  <%= link_to gallery.title, gallery %>
-                </h2>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <!-- End Projects (aka Galleries) -->
-
-    <!-- Pagination -->
-    <%= render 'galleries/page_list', pagy: @pagy %>
-    <!-- End Pagination -->
-  </div>
+  <%= render 'galleries/grid', galleries: @galleries, pagy: @pagy %>
 </div>
 <!-- End Main Content -->
