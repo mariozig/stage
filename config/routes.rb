@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :announcements, only: [:index]
   resources :categories, only: [:index, :show]
-  resources :galleries, only: [:index, :show] do
+  resources :galleries, only: [:show] do
     resources :comments, only: [:create]
     resources :files, only: [:destroy], controller: 'galleries/files'
     resources :reports, only: [:create, :new]
