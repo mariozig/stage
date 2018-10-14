@@ -33,3 +33,13 @@ body > .alert {
     text-align: left;
   }
 }
+
+.projects .project-item-content .title,
+.projects .project-item-content .project-cat {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.projects .cover .project-item-inner {
+  background-color: rgba(249, 249, 249, 0.8);
+}
