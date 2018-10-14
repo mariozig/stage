@@ -33,10 +33,6 @@
                 <h2 class="title">
                   <%= link_to gallery.title, gallery %>
                 </h2>
-                <h5>
-                  Category:
-                  <%= link_to gallery.category.name, category_path(gallery.category) %>
-                </h5>
               </div>
             </div>
           </div>
@@ -46,7 +42,7 @@
     <!-- End Projects (aka Galleries) -->
 
     <!-- Pagination -->
-    <%= render 'galleries/paginated_listing', pagy: @pagy %>
+    <%= render 'galleries/page_list', pagy: @pagy %>
     <!-- End Pagination -->
   </div>
 </div>
