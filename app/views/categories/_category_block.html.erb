@@ -14,14 +14,16 @@
 
       <ul class="stats-for-nerds">
         <li>
-          11231 galleries
+          <%= pluralize(category.galleries.count, 'gallery') %>
         </li>
-        <li>
-          Last update 2424 days ago
-        </li>
-        <li>
-          something else that's cool
-        </li>
+        <!--
+          <li>
+            Last update 2424 days ago
+          </li>
+          <li>
+            Something else that's cool
+          </li>
+        -->
       </ul>
     </div>
   </div>
