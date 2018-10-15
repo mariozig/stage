@@ -8,7 +8,8 @@ module Admin
       authorize_resource(resource)
 
       if resource.save
-        update_file_associations(resource)
+        resource.import_files_from_submission! if resource.submission.present?
+
         redirect_to(
           [namespace, resource],
           notice: translate_with_resource('create.success')
@@ -17,14 +18,6 @@ module Admin
         render :new, locals: {
           page: Administrate::Page::Form.new(dashboard, resource)
         }
-      end
-    end
-
-    private
-
-    def update_file_associations(gallery)
-      gallery.submission.files.each do |file|
-        gallery.files << file
       end
     end
   end

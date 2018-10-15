@@ -13,7 +13,7 @@ end
 
 # DEFAULTS
 User.create!(email: 'admin@example.com', password: 'Password123!', name: 'The Admin', admin: true)
-Category.create!(name: 'Uncategorized', description: 'Stuff that still needs a proper home.')
+uncategorized_category = Category.create!(name: 'Uncategorized', description: 'Stuff that still needs a proper home.')
 ReportReason.create!(content: 'Other', position: 0)
 
 
@@ -32,3 +32,9 @@ seed_submissions = [
 ]
 
 seed_submissions.each { |seed_submission| Submission.create!(seed_submission) }
+
+# Convert
+Submission.all.limit(3).each do |submission|
+  submission.create_gallery(title: submission.description, description: submission.description, category: uncategorized_category, publish_on: Time.now)
+  submission.gallery.import_files_from_submission!
+end

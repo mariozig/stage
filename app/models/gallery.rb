@@ -37,9 +37,28 @@ class Gallery < ApplicationRecord
   end
 
   def friendly_id_sequenced_title
-    slugged_title = title.parameterize
+    slugged_title = title.parameterize || 'untitled'
     sequence = Gallery.where('slug like ?', "#{slugged_title}-%").count + 2
 
     "#{slugged_title}-#{sequence}"
+  end
+
+  def import_files_from_submission!
+    self.submission.files.each do |file|
+      self.files << file
+    end
+  end
+
+  # scopes
+  def self.published
+    where(arel_table[:publish_on].lteq(Date.today))
+  end
+
+  def self.by_publish_on
+    order(publish_on: :asc)
+  end
+
+  def self.default_order
+    published.by_publish_on
   end
 end
