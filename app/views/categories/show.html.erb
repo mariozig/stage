@@ -1,15 +1,20 @@
-<h1><%= @category.name %></h1>
+<% title "Images of #{@category.name}" %>
 
-<div>
-  Galleries:
-  <% @category.galleries.each do |gallery| %>
-    <p>
-      Title: <%= link_to gallery.title, gallery_path(gallery) %>
-      <br>
-      Created: <%= gallery.created_at %>
-    </p>
-  <% end %>
+<div class="header-text">
+  <div class="container">
+    <div class="header-text-inner">
+      <p>
+        <%= @category.name %>
+      </p>
+      <p>
+        <small><%= @category.description %></small>
+      </p>
+    </div>
+  </div>
 </div>
-<div>
-  <%= raw pagy_nav(@pagy) %>
+
+<!-- Main Content -->
+<div class="wrap-content">
+  <%= render 'galleries/grid', galleries: @category.galleries, pagy: @pagy %>
 </div>
+<!-- End Main Content -->
