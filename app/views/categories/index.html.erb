@@ -8,92 +8,21 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
 <!-- Main Content -->
 <div class="wrap-content">
   <div class="container">
     <div class="projects">
-
-
       <div class="grids-layout cover">
         <div class="project-item-sizer"></div>
-        <div class="project-item design travel">
-          <div class="project-item-inner image" style="background-image: url(images/projects/1.jpg)">
-            <div class="project-item-content">
-              <h2 class="title">
-                <a href="#">Chair</a>
-              </h2>
-              <ul class="project-cat">
-                <li>
-                  <a href="#">Branding</a>
-                </li>
-                <li>
-                  <a href="#">Design</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
 
-        <div class="project-item design identity">
-          <div class="project-item-inner image" style="background-image: url(images/projects/2.jpg)">
-            <div class="project-item-content">
-              <h2 class="title">
-                <a href="#">Watch</a>
-              </h2>
-              <ul class="project-cat">
-                <li>
-                  <a href="#">Branding</a>
-                </li>
-                <li>
-                  <a href="#">Design</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <!-- Categories -->
+        <% @categories.each do |category| %>
+          <%= render "category_block", category: category %>
+        <% end %>
+        <!-- End Categories -->
 
-        <div class="project-item branding travel">
-          <div class="project-item-inner image" style="background-image: url(images/projects/3.jpg)">
-            <div class="project-item-content">
-              <h2 class="title">
-                <a href="#">Glass</a>
-              </h2>
-              <ul class="project-cat">
-                <li>
-                  <a href="#">Branding</a>
-                </li>
-                <li>
-                  <a href="#">Design</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-
-
+      </div>
+    </div>
   </div>
 </div>
 <!-- End Main Content -->
-
-
-
-
-
-
-
-    Category Index:
-<div>
-  <% @categories.each do |category| %>
-    <div>
-      <%= link_to category.name, category_path(category) %> | Galleries: <%= category.galleries.count %>
-    </div>
-  <% end %>
-</div>
