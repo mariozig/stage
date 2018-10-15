@@ -24,6 +24,7 @@ class SubmissionDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
+    gallery
     description
     created_at
   ].freeze
