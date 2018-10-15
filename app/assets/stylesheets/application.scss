@@ -44,7 +44,11 @@ body > .alert {
   background-color: rgba(249, 249, 249, 0.8);
 }
 
-.stats-for-nerds {
-  font-size: 12px;
-  text-align: left;
+.project-item-content {
+  line-height: 25px;
+
+  .stats-for-nerds {
+    font-size: 10px;
+    text-align: left;
+  }
 }
