@@ -10,7 +10,7 @@
 // @import "announcements";
 
 // Masquerade alert shouldn't have a bottom margin
-body > .alert {
+body>.alert {
   margin-bottom: 0;
 }
 
@@ -22,26 +22,31 @@ body > .alert {
   }
 }
 
-.projects .scale .project-item-content {
-  opacity: 1;
-  visibility: visible;
-  left: 15px;
-  padding-left: 15px;
-  padding-right: 30px;
+.projects {
+  .scale .project-item-content {
+    opacity: 1;
+    visibility: visible;
+    left: 15px;
+    padding-left: 15px;
+    padding-right: 30px;
 
-  .title {
-    text-align: left;
+    .title {
+      text-align: left;
+    }
   }
-}
 
-.projects .project-item-content .title,
-.projects .project-item-content .project-cat {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
+  .project-item-content {
 
-.projects .cover .project-item-inner {
-  background-color: rgba(249, 249, 249, 0.8);
+    .title,
+    .project-cat {
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+  }
+
+  .cover .project-item-inner {
+    background-color: rgba(249, 249, 249, 0.8);
+  }
 }
 
 .project-item-content {
@@ -51,4 +56,9 @@ body > .alert {
     font-size: 10px;
     text-align: left;
   }
+}
+
+.projects .project-item {
+  padding-left: 10px;
+  padding-right: 10px;
 }
