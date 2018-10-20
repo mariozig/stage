@@ -55,7 +55,7 @@ class Gallery < ApplicationRecord
   end
 
   def self.by_publish_on
-    order(publish_on: :asc)
+    order(publish_on: :desc)
   end
 
   def self.default_order
