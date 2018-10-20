@@ -1,4 +1,50 @@
-<h1>New Submission</h1>
-<p class="lead">Submit a gallery</p>
+<% title "Submit a Gallery" %>
 
-<%= render 'form', submission: @submission %>
+<!-- Main Content -->
+<div class="wrap-content">
+  <div class="container">
+    <div class="project single-page page-special">
+
+      <div class="project-inner">
+        <h2 class="title">Display Your Outrun Pics</h2>
+
+        <div class="row">
+          <div class="col-md-6">
+            <!-- The Content -->
+            <div class="the-content">
+              <p>
+                <strong>Got some fantastic outrun imagery? Animated Gifs? We'd love to see it!</strong>
+              </p>
+              <p>
+                <strong>When you submit please try to:</strong>
+              </p>
+              <ul>
+                <li>
+                  Use large images; small stuff will be rejected
+                </li>
+                <li>
+                  Feel free to link your own art work
+                </li>
+                <li>
+                  Help spread the word!
+                </li>
+              </ul>
+            </div>
+            <!-- End Content -->
+          </div>
+
+          <!-- Comment Form -->
+          <div class="col-md-6">
+            <%= render 'form', submission: @submission %>
+          </div>
+          <!-- End Comment Form -->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- End Main Content -->
+
+
