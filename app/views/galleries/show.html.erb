@@ -1,48 +1,152 @@
 <% title @gallery.title %>
 
-<p>
-  id:
-  <br/>
-  <%= @gallery.id  %>
-</p>
-<p>
-  title
-  <br/>
-  <%= @gallery.title %>
-</p>
-<p>
-  category
-  <br/>
-  <%= link_to @gallery.category.name, category_path(@gallery.category) %>
-</p>
-<p>
-  files:
-  <br/>
-  <% @gallery.files.each do |file| %>
-    <%= link_to file.variant(options_for_watermarked_variant) do %>
-      <%= image_tag file.variant(resize: "500x500") %>
-    <% end %>
-  <% end %>
-</p>
-<div>
-  comments:
-  <% @gallery.comments.each do |comment| %>
-    <p>
-      Name: <%= comment.name %>
-      <br>
-      Created: <%= comment.created_at %>
-      <br>
-      Content: <%= comment.content %>
-    </p>
-  <% end %>
-  <p>
-  add comment:
-    <%= render 'comments/form', gallery: @gallery, comment: (@comment || Comment.new) %>
-  </p>
+<!-- Main Content -->
+<div class="wrap-content">
+  <div class="container">
+    <div class="project">
+
+      <!-- Description Block -->
+      <div class="project-inner">
+
+        <h2 class="title"><%= @gallery.title %></h2>
+
+        <!-- The Content -->
+        <div class="the-content">
+          <p>
+            <%= @gallery.description %>
+          </p>
+        </div>
+        <!-- End The Content -->
+
+        <!-- Attributes -->
+        <div class="project-attributes">
+          <table>
+            <tbody>
+              <tr>
+                <td class="name">Submitter</td>
+                <td class="value">Somebody</td>
+              </tr>
+              <tr>
+                <td class="name">Submitted On</td>
+                <td class="value"><%= @gallery.publish_on.strftime('%F') %></td>
+              </tr>
+              <tr>
+                <td class="name">Category</td>
+                <td class="value"><%= link_to @gallery.category.name, category_path(@gallery.category) %></td>
+              </tr>
+              <tr>
+                <td class="name">Discussion</td>
+                <td class="value">
+                  <%= pluralize(@gallery.comments.count, 'Comment') %> | <%= link_to 'Add yours', '#respond'%>
+                </td>
+              </tr>
+              <tr>
+                <td class="name">Rating</td>
+                <td class="value"><i class="zmdi zmdi-favorite"></i> <span class="number-like">108</span></td>
+              </tr>
+              <tr>
+                <td class="name">Share</td>
+                <td class="value">
+                  <div class="socials">
+                    <div class="kd-sharing-post-social">
+                      <a href="#" class="zmdi zmdi-reddit" title="Reddit" target="blank"></a>
+                      <a href="#" class="zmdi zmdi-dribbble" title="Dribbble" target="blank"></a>
+                      <a href="#" class="zmdi zmdi-facebook" title="Facebook" target="blank"></a>
+                      <a href="#" class="zmdi zmdi-google" title="Google Plus" target="blank"></a>
+                      <a href="#" class="zmdi zmdi-twitter" title="Twitter" target="blank"></a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="name">Problems?</td>
+                <td class="value">Report it!</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!-- End Attributes -->
+
+      </div>
+      <!-- End Description Block -->
+
+      <!-- Images Grid -->
+      <div class="images-project grids-layout">
+        <div class="project-item-sizer"></div>
+
+        <% @gallery.files.each do |file| %>
+          <%= link_to file.variant(options_for_watermarked_variant), class: "popup project-item" do %>
+            <%= image_tag file.variant(resize: "500x500"), alt: "image" %>
+          <% end %>
+        <% end %>
+      </div>
+      <!-- End Images Grid -->
+
+
+      <!-- Comments Block -->
+      <div class="project-inner" id="comments">
+
+        <h2 class="title"><%= pluralize(@gallery.comments.count, 'Comment') %></h2>
+
+        <!-- Comments Content -->
+        <div class="the-content">
+          <div class="comments-inner">
+            <ul class="comment-list">
+
+              <% @gallery.comments.each do |comment| %>
+                <li class="comment">
+                  <div class="comment-body">
+                    <div class="comment-avatar image" style="background-image: url(<%= gravatar_image_url(comment.email, size: 150) %>);">
+                      <%= image_tag gravatar_image_url(comment.email, size: 150) %>
+                    </div>
+                    <div class="comment-context">
+                      <div class="comment-head">
+                        <h2 class="title">
+                          <%= comment.name %>
+                        </h2>
+                        <span class="comment-date"><%= comment.created_at.strftime('%F') %></span>
+                      </div>
+                      <div class="comment-content">
+                        <p>
+                          <%= comment.content %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+
+            </ul>
+          </div>
+        </div>
+        <!-- End Comments Content -->
+
+        <!-- Add Comment -->
+        <div id="respond" class="comment-respond">
+          <h2 class="title">What do you think?</h2>
+
+          <%= render 'comments/form', gallery: @gallery, comment: (@comment || Comment.new) %>
+        </div>
+        <!-- End Add Comment -->
+
+
+      </div>
+      <!-- End Comments Block -->
+    </div>
+  </div>
 </div>
+<!-- End Main Content -->
+
+
+
+<!--
+
 <div>
   reports:
   add report:
-    <%= render 'reports/form', gallery: @gallery, report: @report || Report.new %>
+  <%= render 'reports/form', gallery: @gallery, report: @report || Report.new %>
   </p>
 </div>
+
+-->

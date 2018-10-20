@@ -22,6 +22,10 @@ body>.alert {
   }
 }
 
+.images-project {
+  margin-bottom: 100px;
+}
+
 .projects {
   .scale .project-item-content {
     opacity: 1;
@@ -61,4 +65,8 @@ body>.alert {
 .projects .project-item {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+#comments .comment-context {
+  margin-bottom: 60px;
 }
